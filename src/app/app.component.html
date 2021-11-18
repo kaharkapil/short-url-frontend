@@ -1,13 +1,13 @@
 <div class="main">
   <label for="">URL :</label>
   <br>
-  <input type="text" placeholder="Enter your URL here">
+  <input type="text" placeholder="Enter your URL here" [(ngModel)]="longURL">
   <br>
   <br>
-  <button class="submit_button">Submit</button>
-  <p>Your short URL is here : {{shortURL}}</p>
-  <br>
-  <br>
-  <p>Expires In : {{expiresIn}}</p>
-
+  <button class="submit_button" (click)="submit()">Submit</button>
+  <div *ngIf="expiresIn">
+    <p>Your short URL is here : </p>
+    <a target="_blank" [href]="shortURL">{{shortURL}}</a>
+    <p>Expires In : {{expiresIn}}</p>
+  </div>
 </div>
